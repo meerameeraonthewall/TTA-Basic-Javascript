@@ -1,0 +1,97 @@
+.size {
+    display:inline-block;
+    margin-right:10px;
+    vertical-align: top;
+}
+
+.crust {
+    display:inline-block;
+    vertical-align: top;
+}
+
+.sauce {
+    display:inline-block;
+    vertical-align: top;
+}
+
+.box{
+    border: 1px orange solid;
+    border-radius: 8px;
+    margin: 15px;
+    padding: 10px;
+    background: yellow;
+    vertical-align: top;
+}
+
+.container{
+    text-align:center;
+    border: 2px red solid;
+    border-radius:15px;
+    background: darkred;
+    width: 1000px;
+    
+}
+
+.cheese {
+    display:inline-block;
+    vertical-align: top;
+}
+
+.meat {
+    display:inline-block;
+    vertical-align: top;
+}
+
+.veg {
+    display:inline-block;
+    vertical-align: top;
+}
+
+.basics, .toppings {
+    text-align:center;
+}
+
+h1 {
+    color:mintcream;
+    text-align:center;
+}
+
+ul {
+    text-align:left;
+}
+
+li{
+    cursor:pointer;
+}
+
+button{
+    background: lightgreen;
+    border: 1px green solid;
+    padding: 15px;
+    margin: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size:18px;
+}
+
+#out{
+    display:inline-block;
+    vertical-align:top;
+    background: lightgreen;
+    border: 1px green solid;
+    border-radius:5px;
+    width:150px;
+    height:90px;
+}
+
+
+
+
+
+
+
+
+
+
+
+

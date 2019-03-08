@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset = "UTF-8">
+        <title>PIZZA!</title>
+        <link rel="stylesheet" href="./pizza.css">
+
+    <body>
+        <form onsubmit="total()" class="container">
+            <h1>The Basics</h1>
+            <div class="basics">
+                
+                <div class="size box" vertical-align= text-top>
+                    <h3>Size:</h3>
+                    <ul>
+                        <input type="radio" name="size" value="pers" checked> Personal<br>
+                        <input type="radio" name="size" value="med"> Medium<br>
+                        <input type="radio" name="size" value="lg"> Large<br>
+                        <input type="radio" name="size" value="xlg"> Extra Large
+                    </ul>
+                </div>
+                
+                <div class="crust box" vertical-align= text-top>
+                    <h3>Crust:</h3>
+                    <ul>
+                        <input type="radio" name="crust" value="plain" checked> Plain<br>
+                        <input type="radio" name="crust" value="garlic"> Garlic Butter<br>
+                        <input type="radio" name="crust" value="chz"> Cheese Stuffed<br>
+                        <input type="radio" name="crust" value="spicy"> Spicy<br>
+                        <input type="radio" name="crust" value="spec"> House Special
+                    </ul>
+                </div>
+                
+                <div class="sauce box" vertical-align= text-top>
+                    <h3>Sauce:</h3>
+                    <ul>
+                        <input type="radio" name="sauce" value="red" checked> Marinara<br>
+                        <input type="radio" name="sauce" value="white"> White Sauce<br>
+                        <input type="radio" name="sauce" value="bbq"> Barbecue Sauce<br>
+                        <input type="radio" name="sauce" value="none"> No Sauce<br>
+                    </ul>
+                </div>
+            </div>
+
+            <h1>Toppings</h1>
+            
+            <div class="toppings">
+                
+                <div class= "cheese box"
+                    <h3>Cheese:</h3>
+                    <ul>
+                        <input type="radio" name="chz" value="reg" checked> Regular<br>
+                        <input type="radio" name="chz" value="none"> None<br>
+                        <input type="radio" name="chz" value="xtra"> EXTRA!!!<br>
+                    </ul>
+                </div>
+                
+                <div class="meat box"
+                    <h3>Meat:</h3>
+                    <ul id="meats">
+                        <input type="checkbox" value="pep"> Pepperoni<br>
+                        <input type="checkbox" value="saus"> Sausage<br>
+                        <input type="checkbox" value="bac"> Canadian Bacon<br>
+                        <input type="checkbox" value="beef"> Ground Beef<br>
+                        <input type="checkbox" value="anch"> Anchovy<br>
+                        <input type="checkbox" value="chx"> Chicken
+                    </ul>
+                </div>
+                
+                <div class="veg box"
+                    <h3>Veggies:</h3>
+                    <ul id="veg">
+                        <input type="checkbox" value="tomato">Tomato<br>
+                        <input type="checkbox" value="onion"> Onion<br>
+                        <input type="checkbox" value="olive"> Olive<br>
+                        <input type="checkbox" value="pep"> Green Pepper<br>
+                        <input type="checkbox" value="mush"> Mushroom<br>
+                        <input type="checkbox" value="pin"> Pineapple<br>
+                        <input type="checkbox" value="spin"> Spinach<br>
+                        <input type="checkbox" value="jal"> Jalapeno<br>
+                    </ul>
+                </div>
+            </div>
+            
+            <button type="submit">Submit</button>
+            <button type="reset">Start Over</button>
+            
+            <div id="out">
+                <h5>Display Total:</h5>
+                <input type="text" id="output">
+            </div>
+        </form>
+
+        <script>
+            function total(){
+                var cost = 0;
+                var size = document.querySelector('input[name="size"]:checked').value;
+                var crust = document.querySelector('input[name="crust"]:checked').value;
+                var sauce = document.querySelector('input[name="sauce"]:checked').value;
+                var cheese = document.querySelector('input[name="chz"]:checked').value;
+                var meat = document.getElementById("meats").getElementsByTagName("input").length;
+                var veg = document.getElementById("veg").getElementsByTagName("input").length;
+                
+                
+                function sizecost(size){
+                    if(size=="pers"){
+                        return 6;
+                    }
+                    else if(size=="med"){
+                        return 10;
+                    }
+                    else if(size=="lg"){
+                        return 14;
+                    }
+                    else if(size=="xlg"){
+                        return 16;
+                    }
+                }
+                
+                function crustcost(crust){
+                    if(crust=="chz"){
+                        return 3;
+                    }
+                    else{
+                        return 0;
+                    }
+                }
+                
+                function cheesecost(cheese){
+                    if(cheese=="xtra"){
+                        return 3;
+                    }
+                    else{
+                        return 0;
+                    }
+                }
+                
+                function toppingscost(list, listlength){
+                    var num = 0;
+                    var i;
+                    for(i=0; i<listlength-1; i++){
+                        if(list[i].checked == true){
+                            num += 1
+                        }
+                    }
+                    if(num==0){
+                        return 0;
+                    }
+                    else{
+                        return num-1;
+                    }
+                }
+                
+                sizeCost = sizecost(size);
+                crustCost = crustcost(crust);
+                cheeseCost = cheesecost(cheese);
+                meatCost = toppingscost(document.getElementById("meats").getElementsByTagName("input"), meat);
+                vegCost = toppingscost(document.getElementById("veg").getElementsByTagName("input"), veg);
+
+                totalCost= sizeCost + crustCost + cheeseCost + meatCost + vegCost;
+                window.alert("Your pizza will cost $" + totalCost + "\nSize: $" + sizeCost + "\nCheese-stuffed crust: $" + crustCost + "\nExtra cheese: $" + cheeseCost + "\nMeat: $" + meatCost + "\nVeggies: $" + vegCost);
+            }
+        </script>
+    </body>
+</html>
