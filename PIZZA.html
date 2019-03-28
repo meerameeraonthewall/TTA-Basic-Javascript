@@ -138,8 +138,9 @@
                 function toppingscost(list, listlength){
                     var num = 0;
                     var i;
-                    for(i=0; i<listlength-1; i++){
+                    for(i=0; i<=listlength-1; i++){
                         if(list[i].checked == true){
+                            console.log(list[i].value);
                             num += 1
                         }
                     }
